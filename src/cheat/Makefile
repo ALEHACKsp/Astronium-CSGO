@@ -12,7 +12,7 @@ cheat: $(CHEAT_BIN_FILE)
 $(CHEAT_BIN_FILE): $(CHEAT_OBJ_FILES)
 	@mkdir -p $(dir $@)
 	@$(LD) $(LD_FLAGS) -o $@ $^
-	@echo LD $(CC_FLAGS) $^
+	@echo LD $(LD_FLAGS) $^
 
 $(OBJ_DIR)/cheat/%.o: $(SRC_DIR)/cheat/%.cpp
 	@mkdir -p $(dir $@)

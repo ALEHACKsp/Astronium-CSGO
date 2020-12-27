@@ -7,7 +7,7 @@ FIND=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call FIND,$d/,$2))
 CC=g++
 CC_FLAGS=-c
 LD=g++
-LD_FLAGS=
+LD_FLAGS=-shared
 
 .PHONY: clean rebuild
 
