@@ -1,19 +1,7 @@
+#include "Platform/EntryPoint.hpp"
+
 #include <Windows.h>
 #include <cstdio>
-
-HMODULE g_hModule = NULL;
-
-int main();
-
-BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved) {
-	if(dwReason == DLL_PROCESS_ATTACH) {
-		g_hModule = hModule;
-		DisableThreadLibraryCalls(hModule);
-		CreateThread(0, 0, (LPTHREAD_START_ROUTINE)main, 0, 0, 0);
-	}
-
-	return TRUE;
-}
 
 int main() {
 	AllocConsole();
@@ -32,5 +20,5 @@ int main() {
 	FreeConsole();
 	SetConsoleCtrlHandler(NULL, TRUE);
 
-	FreeLibraryAndExitThread(g_hModule, 0);
+	Unload(0);
 }
