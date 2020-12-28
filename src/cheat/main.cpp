@@ -11,7 +11,8 @@ int main() {
 	g_pInterfaceManager->Init();
 	g_pHookManager->Init();
 
-	while(!g_pInputSystem->IsButtonDown(KEY_DELETE));
+	lk = std::unique_lock<std::mutex>(m);
+	cv.wait(lk);
 
 	g_pHookManager->Shutdown();
 	g_pConsole->Shutdown();

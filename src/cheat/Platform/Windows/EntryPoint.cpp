@@ -4,6 +4,10 @@
 
 #include <Windows.h>
 
+std::mutex m;
+std::condition_variable cv;
+std::unique_lock<std::mutex> lk;
+
 HMODULE g_hModule = NULL;
 
 BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved) {
