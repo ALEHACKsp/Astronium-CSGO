@@ -15,6 +15,14 @@ void InterfaceManager::Init() {
 	
 }
 
+void InterfaceManager::Dump(const char* szModuleName) {
+	if(!m_pInterfaceRegs[szModuleName]) m_pInterfaceRegs[szModuleName] = GetInterfaceReg(szModuleName);
+
+	for(InterfaceReg* pCurrent = m_pInterfaceRegs[szModuleName]; pCurrent; pCurrent = pCurrent->m_pNext) {
+		printf(XOR("%s: 0x%p\n"), pCurrent->m_pName, pCurrent->m_CreateFn());
+	}
+}
+
 void* InterfaceManager::GetInterface(const char* szModuleName, const char* szInterfaceName) {
 	if(!m_pInterfaceRegs[szModuleName]) m_pInterfaceRegs[szModuleName] = GetInterfaceReg(szModuleName);
 

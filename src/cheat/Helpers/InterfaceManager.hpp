@@ -6,6 +6,7 @@
 class InterfaceManager {
 public:
 	void Init();
+	void Dump(const char* szModuleName);
 private:
 	void* GetInterface(const char* szModuleName, const char* szInterfaceName);
 	InterfaceReg* GetInterfaceReg(const char* szModuleName);
