@@ -26,7 +26,7 @@ void HookManager::Shutdown() {
 	g_pConsole->Log(LogLevel_t::INFO, XOR("Shut down HookManager!n"));
 }
 
-void* HookManager::HookFunction(void* pClass, int nIndex, void* pHookFunction) {
+void* HookManager::HookFunction(const void* pClass, int nIndex, const void* pHookFunction) {
 	assert(pClass != nullptr);
 	assert(nIndex >= 0);
 	assert(pHookFunction != nullptr);

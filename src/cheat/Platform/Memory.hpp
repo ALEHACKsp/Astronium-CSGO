@@ -3,6 +3,6 @@
 
 #include <cinttypes>
 
-unsigned long SetMemoryProtection(void* pAddress, size_t nSize, bool bProtect, unsigned long uNewProtect = 0);
+unsigned long SetMemoryProtection(const void* pAddress, size_t nSize, bool bProtect, unsigned long uNewProtect = 0);
 
 #endif

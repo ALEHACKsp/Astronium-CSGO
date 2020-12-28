@@ -6,7 +6,7 @@
 #include <cassert>
 
 template <unsigned int nIndex, typename ReturnType, typename... Args>
-FORCEINLINE ReturnType CallVirtualFunction(void* pClass, Args... args) {
+FORCEINLINE ReturnType CallVirtualFunction(const void* pClass, Args... args) {
 	assert(pClass != nullptr);
 	assert(nIndex >= 0);
 
