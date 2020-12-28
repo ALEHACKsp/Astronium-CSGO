@@ -5,6 +5,8 @@
 #include "../Platform/Console.hpp"
 #include "../Platform/Module.hpp"
 
+#include "../SDK/Interfaces/IInputSystem.hpp"
+
 #include <cstdio>
 #include <cstring>
 #include <unordered_map>
@@ -12,7 +14,7 @@
 std::unordered_map<std::string, InterfaceReg*> m_pInterfaceRegs;
 
 void InterfaceManager::Init() {
-	
+	g_pInputSystem = (IInputSystem*)GetInterface(XOR("inputsystem"), XOR("InputSystemVersion"));
 }
 
 void InterfaceManager::Dump(const char* szModuleName) {

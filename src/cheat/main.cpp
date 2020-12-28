@@ -7,6 +7,7 @@
 
 int main() {
 	g_pConsole->Init();
+	g_pInterfaceManager->Init();
 
 	while(!GetAsyncKeyState(VK_DELETE));
 
