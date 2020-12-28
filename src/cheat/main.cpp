@@ -3,13 +3,13 @@
 #include "Platform/EntryPoint.hpp"
 #include "Platform/Console.hpp"
 
-#include <Windows.h>
+#include "SDK/Interfaces/IInputSystem.hpp"
 
 int main() {
 	g_pConsole->Init();
 	g_pInterfaceManager->Init();
 
-	while(!GetAsyncKeyState(VK_DELETE));
+	while(!g_pInputSystem->IsButtonDown(KEY_DELETE));
 
 	g_pConsole->Shutdown();
 	Unload(0);
