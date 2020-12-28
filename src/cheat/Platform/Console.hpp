@@ -16,6 +16,7 @@ class Console {
 public:
 	void Init(const char* szTitle = XOR("Astronium-Debug"));
 	void Shutdown();
+	void Log(LogLevel_t nLogLevel, const char* szFormat, ...);
 };
 
 extern Console* g_pConsole;

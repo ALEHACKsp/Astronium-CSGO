@@ -4,8 +4,6 @@
 #include "Platform/EntryPoint.hpp"
 #include "Platform/Console.hpp"
 
-#include "SDK/Interfaces/IInputSystem.hpp"
-
 int main() {
 	g_pConsole->Init();
 	g_pInterfaceManager->Init();
