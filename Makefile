@@ -5,7 +5,7 @@ SRC_DIR=src
 FIND=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call FIND,$d/,$2))
 
 CC=g++
-CC_FLAGS=-c
+CC_FLAGS=-std=c++17 -march=native -c
 LD=g++
 LD_FLAGS=-shared
 

@@ -15,6 +15,10 @@
 #define THISCALL __thiscall
 #endif
 
+#ifndef FORCEINLINE
+#define FORCEINLINE __forceinline
+#endif
+
 #elif defined(__GNUC__)
 
 #ifndef FASTCALL
@@ -27,6 +31,10 @@
 
 #ifndef THISCALL
 #define THISCALL __attribute__(thiscall)
+#endif
+
+#ifndef FORCEINLINE
+#define FORCEINLINE __attribute__((always_inline)) inline
 #endif
 
 #else

@@ -11,8 +11,8 @@ void Console::Init(const char* szTitle) {
 	AllocConsole();
 	SetConsoleTitle(szTitle);
 
-	freopen("CONOUT$", "w", stdout);
-	freopen("CONIN$", "r", stdin);
+	freopen(XOR("CONOUT$"), XOR("w"), stdout);
+	freopen(XOR("CONIN$"), XOR("r"), stdin);
 #endif
 }
 

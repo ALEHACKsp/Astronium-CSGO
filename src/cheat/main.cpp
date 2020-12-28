@@ -1,8 +1,6 @@
 #include "Platform/EntryPoint.hpp"
 #include "Platform/Console.hpp"
 
-#include "Platform/Module.hpp"
-
 #include <Windows.h>
 #include <cstdio>
 

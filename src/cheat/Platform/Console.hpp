@@ -1,6 +1,8 @@
 #ifndef CONSOLE_HPP
 #define CONSOLE_HPP
 
+#include "../Helpers/XorStr.hpp"
+
 enum class LogLevel_t {
 	NONE = 0,
 	DEBUG,
@@ -12,7 +14,7 @@ enum class LogLevel_t {
 
 class Console {
 public:
-	void Init(const char* szTitle = "Astronium-Debug");
+	void Init(const char* szTitle = XOR("Astronium-Debug"));
 	void Shutdown();
 };
 
