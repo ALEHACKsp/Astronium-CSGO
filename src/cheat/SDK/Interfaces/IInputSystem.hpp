@@ -6,7 +6,8 @@
 #include "../Misc/ButtonCode.hpp"
 
 class IInputSystem : public IAppSystem {
-	virtual bool IsButtonDown(ButtonCode_t code);
+public:
+	bool IsButtonDown(ButtonCode_t code);
 };
 
 extern IInputSystem* g_pInputSystem;

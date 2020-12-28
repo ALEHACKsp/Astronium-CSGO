@@ -22,15 +22,15 @@
 #elif defined(__GNUC__)
 
 #ifndef FASTCALL
-#define FASTCALL __attribute__(fastcall)
+#define FASTCALL __attribute__((fastcall))
 #endif
 
 #ifndef STDCALL
-#define STDCALL __attribute__(stdcall)
+#define STDCALL __attribute__((stdcall))
 #endif
 
 #ifndef THISCALL
-#define THISCALL __attribute__(thiscall)
+#define THISCALL __attribute__((thiscall))
 #endif
 
 #ifndef FORCEINLINE
