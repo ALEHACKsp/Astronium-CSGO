@@ -7,21 +7,24 @@
 
 #include "../SDK/Interfaces/IInputSystem.hpp"
 
-#include <cstdio>
 #include <cstring>
 #include <unordered_map>
 
 std::unordered_map<std::string, InterfaceReg*> m_pInterfaceRegs;
 
 void InterfaceManager::Init() {
+	g_pConsole->Log(LogLevel_t::INFO, XOR("Initializing InterfaceManager...\n"));
+
 	g_pInputSystem = (IInputSystem*)GetInterface(XOR("inputsystem"), XOR("InputSystemVersion"));
+
+	g_pConsole->Log(LogLevel_t::INFO, XOR("Initialized InterfaceManager!\n"));
 }
 
 void InterfaceManager::Dump(const char* szModuleName) {
 	if(!m_pInterfaceRegs[szModuleName]) m_pInterfaceRegs[szModuleName] = GetInterfaceReg(szModuleName);
 
 	for(InterfaceReg* pCurrent = m_pInterfaceRegs[szModuleName]; pCurrent; pCurrent = pCurrent->m_pNext) {
-		printf(XOR("%s: 0x%p\n"), pCurrent->m_pName, pCurrent->m_CreateFn());
+		g_pConsole->Log(LogLevel_t::NONE, XOR("%s: 0x%p\n"), pCurrent->m_pName, pCurrent->m_CreateFn());
 	}
 }
 
@@ -30,7 +33,7 @@ void* InterfaceManager::GetInterface(const char* szModuleName, const char* szInt
 
 	for(InterfaceReg* pCurrent = m_pInterfaceRegs[szModuleName]; pCurrent; pCurrent = pCurrent->m_pNext) {
 		if(strncmp(pCurrent->m_pName, szInterfaceName, strlen(szInterfaceName)) == 0 && strlen(pCurrent->m_pName) - strlen(szInterfaceName) <= 3) {
-			printf(XOR("%s: 0x%p\n"), pCurrent->m_pName, pCurrent->m_CreateFn());
+			g_pConsole->Log(LogLevel_t::DEBUG, XOR("%s: 0x%p\n"), pCurrent->m_pName, pCurrent->m_CreateFn());
 			return pCurrent->m_CreateFn();
 		}
 	}

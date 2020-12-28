@@ -15,9 +15,13 @@ void Console::Init(const char* szTitle) {
 	freopen(XOR("CONOUT$"), XOR("w"), stdout);
 	freopen(XOR("CONIN$"), XOR("r"), stdin);
 #endif
+
+	Log(LogLevel_t::INFO, XOR("Initialized Console!\n"));
 }
 
 void Console::Shutdown() {
+	Log(LogLevel_t::INFO, XOR("Shutting down Console...\n"));
+
 #ifndef _RELEASE
 	fclose(stdout);
 	fclose(stdin);
