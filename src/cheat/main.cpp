@@ -1,12 +1,13 @@
 #include "Platform/EntryPoint.hpp"
 #include "Platform/Console.hpp"
 
+#include "Platform/Module.hpp"
+
 #include <Windows.h>
 #include <cstdio>
 
 int main() {
 	g_pConsole->Init();
-	printf("Hello World!\n");
 
 	while(!GetAsyncKeyState(VK_DELETE));
 

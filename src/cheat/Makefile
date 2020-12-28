@@ -11,10 +11,10 @@ cheat: $(CHEAT_BIN_FILE)
 	
 $(CHEAT_BIN_FILE): $(CHEAT_OBJ_FILES)
 	@mkdir -p $(dir $@)
-	@$(LD) $(LD_FLAGS) -o $@ $^
 	@echo LD $(LD_FLAGS) $^
+	@$(LD) $(LD_FLAGS) -o $@ $^
 
 $(OBJ_DIR)/cheat/%.o: $(SRC_DIR)/cheat/%.cpp
 	@mkdir -p $(dir $@)
-	@$(CC) $(CC_FLAGS) -o $@ $^
 	@echo CC $(CC_FLAGS) $^
+	@$(CC) $(CC_FLAGS) -o $@ $^
