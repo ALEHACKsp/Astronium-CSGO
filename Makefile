@@ -2,12 +2,12 @@ BIN_DIR=bin
 OBJ_DIR=obj
 SRC_DIR=src
 
-FIND=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call FIND,$d/,$2))
-
 CC=g++
-CC_FLAGS=-std=c++17 -march=native -fpermissive -c
+CC_FLAGS=-c
 LD=g++
-LD_FLAGS=-shared
+LD_FLAGS=
+
+FIND=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call FIND,$d/,$2))
 
 .PHONY: clean rebuild
 
@@ -17,7 +17,9 @@ all: cheat
 clean:
 	@rm -rf $(BIN_DIR)
 	@rm -rf $(OBJ_DIR)
+	@echo ============= Clean complete! =============
 
-rebuild: all
+rebuild: clean all
+	@echo ============ Rebuild complete! ============
 
 include $(SRC_DIR)/cheat/Makefile
