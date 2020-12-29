@@ -13,4 +13,9 @@ public:
 	static InterfaceReg* s_pInterfaceRegs;
 };
 
+class IBaseInterface {
+public:
+	virtual	~IBaseInterface() {}
+};
+
 #endif 
