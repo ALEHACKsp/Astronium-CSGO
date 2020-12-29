@@ -13,7 +13,7 @@
 void HookManager::Init() {
 	g_pConsole->Log(LogLevel_t::INFO, XOR("Initializing HookManager...\n"));
 
-	oPollInputState = (PollInputState_t)HookFunction(g_pInputSystem, 13, &hkPollInputState);
+	oPollInputState = (PollInputState_t)HookFunction(g_pInputSystem, 13, (void*)&hkPollInputState);
 
 	g_pConsole->Log(LogLevel_t::INFO, XOR("Initialized HookManager!\n"));
 }
@@ -21,12 +21,12 @@ void HookManager::Init() {
 void HookManager::Shutdown() {
 	g_pConsole->Log(LogLevel_t::INFO, XOR("Shutting down HookManager...\n"));
 
-	HookFunction(g_pInputSystem, 13, oPollInputState);
+	HookFunction(g_pInputSystem, 13, (void*)oPollInputState);
 
 	g_pConsole->Log(LogLevel_t::INFO, XOR("Shut down HookManager!n"));
 }
 
-void* HookManager::HookFunction(const void* pClass, int nIndex, const void* pHookFunction) {
+void* HookManager::HookFunction(void* pClass, int nIndex, void* pHookFunction) {
 	assert(pClass != nullptr);
 	assert(nIndex >= 0);
 	assert(pHookFunction != nullptr);

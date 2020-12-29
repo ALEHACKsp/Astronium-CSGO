@@ -6,7 +6,7 @@
 
 #include <cassert>
 
-unsigned long SetMemoryProtection(const void* pAddress, size_t nSize, bool bProtect, unsigned long uNewProtect) {
+unsigned long SetMemoryProtection(void* pAddress, size_t nSize, bool bProtect, unsigned long uNewProtect) {
 	assert(pAddress != nullptr);
 
 	unsigned long uOldProtect;

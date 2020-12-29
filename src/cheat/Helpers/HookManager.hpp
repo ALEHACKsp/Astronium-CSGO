@@ -6,7 +6,7 @@ public:
 	void Init();
 	void Shutdown();
 private:
-	void* HookFunction(const void* pClass, int nIndex, const void* pHookFunction);
+	void* HookFunction(void* pClass, int nIndex, void* pHookFunction);
 };
 
 extern HookManager* g_pHookManager;
